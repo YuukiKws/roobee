@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Roobee 設定</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 24px 20px 60px;
+      color: #333;
+    }
+    h1 {
+      font-size: 20px;
+      color: #e8730a;
+      margin-bottom: 4px;
+    }
+    .subtitle {
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 20px;
+    }
+    .search-box {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      padding: 10px 0;
+      z-index: 10;
+    }
+    .search-box input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px 14px;
+      font-size: 14px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+    .search-box input:focus {
+      outline: none;
+      border-color: #e8730a;
+    }
+    .count {
+      font-size: 12px;
+      color: #999;
+      margin: 8px 0 12px;
+    }
+    .word-list {
+      border-top: 1px solid #eee;
+    }
+    .word-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 4px;
+      border-bottom: 1px solid #eee;
+    }
+    .word-row.excluded {
+      opacity: 0.45;
+    }
+    .word-row input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      accent-color: #e8730a;
+      cursor: pointer;
+    }
+    .word-main {
+      flex: 1;
+      min-width: 0;
+    }
+    .word-num {
+      font-size: 11px;
+      color: #bbb;
+      font-family: monospace;
+      margin-right: 6px;
+    }
+    .word-jp {
+      font-size: 15px;
+      font-weight: bold;
+    }
+    .word-en {
+      font-size: 12px;
+      color: #e8730a;
+      margin-left: 8px;
+    }
+    .word-meta {
+      font-size: 11px;
+      color: #999;
+      margin-top: 2px;
+    }
+    .empty-state {
+      text-align: center;
+      color: #999;
+      padding: 40px 0;
+      font-size: 13px;
+    }
+    .bulk-actions {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .bulk-actions button {
+      font-size: 12px;
+      padding: 5px 10px;
+      border: 1px solid #ddd;
+      background: #fff;
+      border-radius: 6px;
+      cursor: pointer;
+      color: #555;
+    }
+    .bulk-actions button:hover {
+      border-color: #e8730a;
+      color: #e8730a;
+    }
+  </style>
+</head>
+<body>
+  <h1>Roobee 設定</h1>
+  <div class="subtitle">チェックを外した単語は、ページ上でルビ表示されなくなります。</div>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="日本語または英語で検索(例: 政府 / government)">
+  </div>
+
+  <div class="count" id="countText"></div>
+  <div class="bulk-actions">
+    <button id="checkAllVisible">表示中を全てON</button>
+    <button id="uncheckAllVisible">表示中を全てOFF</button>
+  </div>
+
+  <div class="word-list" id="wordList"></div>
+  <div class="empty-state" id="emptyState" style="display:none;">該当する単語が見つかりません</div>
+
+  <script src="dict_manifest.js"></script>
+  <script src="dict_loader.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>
